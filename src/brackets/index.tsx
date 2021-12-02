@@ -68,14 +68,18 @@ const SingleElimination = ({
       </Round>
 
       {consolationMatch && roundIdx + 1 === rounds.length ? (
-        <Fragment>
-          {renderSeedComponent({
-            seed: consolationMatch.seeds[0],
-            breakpoint: mobileBreakpoint,
-            roundIndex: roundIdx,
-            seedIndex: 0,
-          })}
-        </Fragment>
+        <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
+          <SeedsList>
+            <Fragment>
+              {renderSeedComponent({
+                seed: consolationMatch.seeds[0],
+                breakpoint: mobileBreakpoint,
+                roundIndex: roundIdx,
+                seedIndex: 0,
+              })}
+            </Fragment>
+          </SeedsList>
+        </Round>
       ) : null}
     </Fragment>
   ));
