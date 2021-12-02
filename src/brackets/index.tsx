@@ -72,10 +72,10 @@ const SingleElimination = ({
           <SeedsList>
             <div
               style={{
-                marginLeft: '-450px',
+                marginLeft: '-226px',
                 paddingTop: '160px',
                 position: 'absolute',
-                padding: '160px 1.5em 0px 1.5em',
+                padding: '220px 1.5em 0px 1.5em',
               }}
             >
               {renderSeedComponent({
