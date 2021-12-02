@@ -49,7 +49,7 @@ const SingleElimination = ({
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-
+  console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
   const data = rounds.map((round, roundIdx) => (
     <Round key={roundIdx} className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
       {round.title && roundTitleComponent(round.title, roundIdx)}
