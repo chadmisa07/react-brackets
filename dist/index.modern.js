@@ -121,7 +121,7 @@ var SingleElimination = function SingleElimination(_ref) {
         seedIndex: idx
       }));
     }), consolationMatch && roundIdx + 1 === rounds.length ? React.createElement(Fragment, null, renderSeedComponent({
-      seed: consolationMatch,
+      seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
       seedIndex: 0
