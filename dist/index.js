@@ -123,7 +123,12 @@ var SingleElimination = function SingleElimination(_ref) {
         roundIndex: roundIdx,
         seedIndex: idx
       }));
-    })));
+    }), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(React.Fragment, null, renderSeedComponent({
+      seed: consolationMatch,
+      breakpoint: mobileBreakpoint,
+      roundIndex: roundIdx,
+      seedIndex: 0
+    })) : null));
   });
 
   if (isResponsive) {
