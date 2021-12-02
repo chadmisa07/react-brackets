@@ -27,6 +27,7 @@ export interface SingleEliminationProps {
      * @param {number} roundIdx the current round index
      */
     renderSeedComponent?: ({ seed, breakpoint, roundIndex, seedIndex }: RenderSeedProps) => any;
+    consolationMatch?: any;
 }
-declare const SingleElimination: ({ rounds, rtl, roundClassName, bracketClassName, swipeableProps, mobileBreakpoint, renderSeedComponent, roundTitleComponent, }: SingleEliminationProps) => JSX.Element;
+declare const SingleElimination: ({ rounds, rtl, roundClassName, bracketClassName, swipeableProps, mobileBreakpoint, renderSeedComponent, roundTitleComponent, consolationMatch, }: SingleEliminationProps) => JSX.Element;
 export default SingleElimination;

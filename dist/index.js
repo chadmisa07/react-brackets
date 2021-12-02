@@ -104,9 +104,11 @@ var SingleElimination = function SingleElimination(_ref) {
       _ref$renderSeedCompon = _ref.renderSeedComponent,
       renderSeedComponent = _ref$renderSeedCompon === void 0 ? renderSeed : _ref$renderSeedCompon,
       _ref$roundTitleCompon = _ref.roundTitleComponent,
-      roundTitleComponent = _ref$roundTitleCompon === void 0 ? renderTitle : _ref$roundTitleCompon;
+      roundTitleComponent = _ref$roundTitleCompon === void 0 ? renderTitle : _ref$roundTitleCompon,
+      consolationMatch = _ref.consolationMatch;
   var isResponsive = useMedia(mobileBreakpoint);
   console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
+  console.log('@@@@@@@@@@@@ consolationMatch >>>>', consolationMatch);
   var data = rounds.map(function (round, roundIdx) {
     return React__default.createElement(Round, {
       key: roundIdx,

@@ -35,6 +35,8 @@ export interface SingleEliminationProps {
    * @param {number} roundIdx the current round index
    */
   renderSeedComponent?: ({ seed, breakpoint, roundIndex, seedIndex }: RenderSeedProps) => any;
+
+  consolationMatch?: any;
 }
 
 const SingleElimination = ({
@@ -46,10 +48,12 @@ const SingleElimination = ({
   mobileBreakpoint = 992,
   renderSeedComponent = renderSeed,
   roundTitleComponent = renderTitle,
+  consolationMatch,
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
   console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
+  console.log('@@@@@@@@@@@@ consolationMatch >>>>', consolationMatch);
   const data = rounds.map((round, roundIdx) => (
     <Round key={roundIdx} className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
       {round.title && roundTitleComponent(round.title, roundIdx)}
