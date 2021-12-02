@@ -127,12 +127,19 @@ var SingleElimination = function SingleElimination(_ref) {
     }))), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(Round, {
       className: roundClassName,
       mobileBreakpoint: mobileBreakpoint
-    }, roundTitleComponent('      ', roundIdx), React__default.createElement(SeedsList, null, React__default.createElement(React.Fragment, null, renderSeedComponent({
+    }, roundTitleComponent('      ', roundIdx), React__default.createElement(SeedsList, {
+      style: {
+        marginLeft: '-450px',
+        paddingTop: '160px',
+        position: 'absolute',
+        padding: '160px 1.5em 0px 1.5em'
+      }
+    }, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
       seedIndex: 0
-    })))) : null);
+    }))) : null);
   });
 
   if (isResponsive) {
