@@ -55,15 +55,18 @@ const SingleElimination = ({
   console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
   console.log('@@@@@@@@@@@@ consolationMatch >>>>', consolationMatch);
   const data = rounds.map((round, roundIdx) => (
-    <Round key={roundIdx} className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
-      {round.title && roundTitleComponent(round.title, roundIdx)}
-      <SeedsList>
-        {round.seeds.map((seed, idx) => (
-          <Fragment key={idx}>
-            {renderSeedComponent({ seed, breakpoint: mobileBreakpoint, roundIndex: roundIdx, seedIndex: idx })}
-          </Fragment>
-        ))}
-      </SeedsList>
+    <Fragment key={roundIdx}>
+      <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
+        {round.title && roundTitleComponent(round.title, roundIdx)}
+        <SeedsList>
+          {round.seeds.map((seed, idx) => (
+            <Fragment key={idx}>
+              {renderSeedComponent({ seed, breakpoint: mobileBreakpoint, roundIndex: roundIdx, seedIndex: idx })}
+            </Fragment>
+          ))}
+        </SeedsList>
+      </Round>
+
       {consolationMatch && roundIdx + 1 === rounds.length ? (
         <Fragment>
           {renderSeedComponent({
@@ -74,7 +77,7 @@ const SingleElimination = ({
           })}
         </Fragment>
       ) : null}
-    </Round>
+    </Fragment>
   ));
 
   if (isResponsive) {

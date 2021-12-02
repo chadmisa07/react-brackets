@@ -110,8 +110,9 @@ var SingleElimination = function SingleElimination(_ref) {
   console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
   console.log('@@@@@@@@@@@@ consolationMatch >>>>', consolationMatch);
   var data = rounds.map(function (round, roundIdx) {
-    return React__default.createElement(Round, {
-      key: roundIdx,
+    return React__default.createElement(React.Fragment, {
+      key: roundIdx
+    }, React__default.createElement(Round, {
       className: roundClassName,
       mobileBreakpoint: mobileBreakpoint
     }, round.title && roundTitleComponent(round.title, roundIdx), React__default.createElement(SeedsList, null, round.seeds.map(function (seed, idx) {
@@ -123,7 +124,7 @@ var SingleElimination = function SingleElimination(_ref) {
         roundIndex: roundIdx,
         seedIndex: idx
       }));
-    })), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(React.Fragment, null, renderSeedComponent({
+    }))), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(React.Fragment, null, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
