@@ -124,7 +124,7 @@ var SingleElimination = function SingleElimination(_ref) {
     }))), consolationMatch && roundIdx + 1 === rounds.length ? React.createElement(Round, {
       className: roundClassName,
       mobileBreakpoint: mobileBreakpoint
-    }, roundTitleComponent('      ', roundIdx), React.createElement(SeedsList, {
+    }, React.createElement(SeedsList, null, React.createElement("div", {
       style: {
         marginLeft: '-450px',
         paddingTop: '160px',
@@ -136,7 +136,7 @@ var SingleElimination = function SingleElimination(_ref) {
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
       seedIndex: 0
-    }))) : null);
+    })))) : null);
   });
 
   if (isResponsive) {
