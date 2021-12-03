@@ -128,16 +128,9 @@ var SingleElimination = function SingleElimination(_ref) {
     }))), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(Round, {
       className: roundClassName,
       mobileBreakpoint: mobileBreakpoint
-    }, React__default.createElement(SeedsList, {
+    }, roundTitleComponent('     ', roundIdx), React__default.createElement(SeedsList, {
       className: 'consolation-match'
-    }, React__default.createElement("div", {
-      style: {
-        marginLeft: '-226px',
-        paddingTop: '160px',
-        position: 'absolute',
-        padding: '220px 1.5em 0px 1.5em'
-      }
-    }, renderSeedComponent({
+    }, React__default.createElement("div", null, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
