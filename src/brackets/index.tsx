@@ -9,6 +9,7 @@ export interface RenderSeedProps {
   breakpoint: number;
   roundIndex: number;
   seedIndex: number;
+  isConsolationMatch: boolean;
 }
 
 export interface SingleEliminationProps {
@@ -61,7 +62,13 @@ const SingleElimination = ({
         <SeedsList>
           {round.seeds.map((seed, idx) => (
             <Fragment key={idx}>
-              {renderSeedComponent({ seed, breakpoint: mobileBreakpoint, roundIndex: roundIdx, seedIndex: idx })}
+              {renderSeedComponent({
+                seed,
+                breakpoint: mobileBreakpoint,
+                roundIndex: roundIdx,
+                seedIndex: idx,
+                isConsolationMatch: false,
+              })}
             </Fragment>
           ))}
         </SeedsList>
@@ -69,7 +76,7 @@ const SingleElimination = ({
 
       {consolationMatch && roundIdx + 1 === rounds.length ? (
         <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
-          <SeedsList>
+          <SeedsList className='consolation-match'>
             <div
               style={{
                 marginLeft: '-226px',
@@ -83,6 +90,7 @@ const SingleElimination = ({
                 breakpoint: mobileBreakpoint,
                 roundIndex: roundIdx,
                 seedIndex: 0,
+                isConsolationMatch: true,
               })}
             </div>
           </SeedsList>

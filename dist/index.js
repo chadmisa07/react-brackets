@@ -122,12 +122,15 @@ var SingleElimination = function SingleElimination(_ref) {
         seed: seed,
         breakpoint: mobileBreakpoint,
         roundIndex: roundIdx,
-        seedIndex: idx
+        seedIndex: idx,
+        isConsolationMatch: false
       }));
     }))), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(Round, {
       className: roundClassName,
       mobileBreakpoint: mobileBreakpoint
-    }, React__default.createElement(SeedsList, null, React__default.createElement("div", {
+    }, React__default.createElement(SeedsList, {
+      className: 'consolation-match'
+    }, React__default.createElement("div", {
       style: {
         marginLeft: '-226px',
         paddingTop: '160px',
@@ -138,7 +141,8 @@ var SingleElimination = function SingleElimination(_ref) {
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
-      seedIndex: 0
+      seedIndex: 0,
+      isConsolationMatch: true
     })))) : null);
   });
 

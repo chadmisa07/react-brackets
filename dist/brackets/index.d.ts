@@ -6,6 +6,7 @@ export interface RenderSeedProps {
     breakpoint: number;
     roundIndex: number;
     seedIndex: number;
+    isConsolationMatch: boolean;
 }
 export interface SingleEliminationProps {
     rtl?: boolean;
