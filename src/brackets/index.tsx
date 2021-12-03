@@ -78,14 +78,15 @@ const SingleElimination = ({
         <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
           {roundTitleComponent('     ', roundIdx)}
           <SeedsList className='consolation-match'>
-            <div
-            // style={{
-            //   marginLeft: '-226px',
-            //   paddingTop: '160px',
-            //   position: 'absolute',
-            //   padding: '220px 1.5em 0px 1.5em',
-            // }}
-            >
+            <Fragment>
+              {/* <div
+            style={{
+              marginLeft: '-226px',
+              paddingTop: '160px',
+              position: 'absolute',
+              padding: '220px 1.5em 0px 1.5em',
+            }}
+            > */}
               {renderSeedComponent({
                 seed: consolationMatch.seeds[0],
                 breakpoint: mobileBreakpoint,
@@ -93,7 +94,8 @@ const SingleElimination = ({
                 seedIndex: 0,
                 isConsolationMatch: true,
               })}
-            </div>
+              {/* </div> */}
+            </Fragment>
           </SeedsList>
         </Round>
       ) : null}

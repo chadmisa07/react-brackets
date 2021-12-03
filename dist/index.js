@@ -130,7 +130,7 @@ var SingleElimination = function SingleElimination(_ref) {
       mobileBreakpoint: mobileBreakpoint
     }, roundTitleComponent('     ', roundIdx), React__default.createElement(SeedsList, {
       className: 'consolation-match'
-    }, React__default.createElement("div", null, renderSeedComponent({
+    }, React__default.createElement(React.Fragment, null, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
       roundIndex: roundIdx,
