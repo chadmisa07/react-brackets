@@ -49,12 +49,10 @@ const SingleElimination = ({
   mobileBreakpoint = 992,
   renderSeedComponent = renderSeed,
   roundTitleComponent = renderTitle,
-  consolationMatch,
-}: SingleEliminationProps) => {
+}: // consolationMatch,
+SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-  console.log('@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>', rounds);
-  console.log('@@@@@@@@@@@@ consolationMatch >>>>', consolationMatch);
   const data = rounds.map((round, roundIdx) => (
     <Fragment key={roundIdx}>
       <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
@@ -74,19 +72,11 @@ const SingleElimination = ({
         </SeedsList>
       </Round>
 
-      {consolationMatch && roundIdx + 1 === rounds.length ? (
+      {/* {consolationMatch && roundIdx + 1 === rounds.length ? (
         <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
           {roundTitleComponent('     ', roundIdx)}
           <SeedsList className='consolation-match'>
             <Fragment>
-              {/* <div
-            style={{
-              marginLeft: '-226px',
-              paddingTop: '160px',
-              position: 'absolute',
-              padding: '220px 1.5em 0px 1.5em',
-            }}
-            > */}
               {renderSeedComponent({
                 seed: consolationMatch.seeds[0],
                 breakpoint: mobileBreakpoint,
@@ -94,11 +84,10 @@ const SingleElimination = ({
                 seedIndex: 0,
                 isConsolationMatch: true,
               })}
-              {/* </div> */}
             </Fragment>
           </SeedsList>
         </Round>
-      ) : null}
+      ) : null} */}
     </Fragment>
   ));
 
