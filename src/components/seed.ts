@@ -49,7 +49,7 @@ height: 0;
 
 export const SingleLineSeed = styled.div<SeedProps>(
   (props) => `
-padding: 1.5em 1.5em;
+padding: 2em 1.5em;
 min-width: 244px;
 width:100%;
 position: relative;
@@ -81,7 +81,7 @@ font-size: 14px;
   }
   &:nth-child(odd)::after {
     border-top: 1px solid #707070;
-    top: calc(50% - -11px);
+    top: calc(50% - -15px);
   }
 }
 `
@@ -89,7 +89,7 @@ font-size: 14px;
 
 export const Seed = styled.div<SeedProps>(
   (props) => `
-  padding: 1.5em 1.5em;
+  padding: 2em 1.5em;
   min-width: 244px;
   width:100%;
   position: relative;
@@ -106,7 +106,7 @@ export const Seed = styled.div<SeedProps>(
     &::after {
         content: "";
         position: absolute;
-        height: calc(50% - -11px);
+        height: calc(50% - -15px);
         width: 1.5em;
       [dir="rtl"] & {
         left: 0px;
@@ -142,7 +142,7 @@ export const Seed = styled.div<SeedProps>(
     }
     &:nth-child(odd):not(:last-child)::after {
       border-top: 1px solid #707070;
-      top: calc(50% - -11px);
+      top: calc(50% - -15px);
       [dir="rtl"] & {
         border-left: 1px solid #707070;
         }
