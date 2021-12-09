@@ -50,7 +50,7 @@ height: 0;
 export const SingleLineSeed = styled.div<SeedProps>(
   (props) => `
 padding: 1.5em 1.5em;
-min-width: 225px;
+min-width: 244px;
 width:100%;
 position: relative;
 display: flex;
@@ -90,7 +90,7 @@ font-size: 14px;
 export const Seed = styled.div<SeedProps>(
   (props) => `
   padding: 1.5em 1.5em;
-  min-width: 225px;
+  min-width: 244px;
   width:100%;
   position: relative;
   display: flex;
