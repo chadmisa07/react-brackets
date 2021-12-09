@@ -120,7 +120,7 @@ export const Seed = styled.div<SeedProps>(
       content:'';
       border-top: 1px solid #707070;
       position:absolute;
-      top: 9.5px;
+      top: 15px;
       width:1.5em;
       [dir="rtl"] & {
         left:-1.5em;
