@@ -106,7 +106,7 @@ export const Seed = styled.div<SeedProps>(
     &::after {
         content: "";
         position: absolute;
-        height: 67%;
+        height: calc(50% - -11px);
         width: 1.5em;
       [dir="rtl"] & {
         left: 0px;
@@ -142,7 +142,7 @@ export const Seed = styled.div<SeedProps>(
     }
     &:nth-child(odd):not(:last-child)::after {
       border-top: 1px solid #707070;
-      top: 67%;
+      top: calc(50% - -11px);
       [dir="rtl"] & {
         border-left: 1px solid #707070;
         }
