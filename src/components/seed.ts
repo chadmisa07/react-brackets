@@ -66,7 +66,7 @@ font-size: 14px;
   &::after {
       content: "";
       position: absolute;
-      height: 66%;
+      height: 50%;
       width: 3em;
     [dir="rtl"] & {
       left: -1.5em;
@@ -81,7 +81,7 @@ font-size: 14px;
   }
   &:nth-child(odd)::after {
     border-top: 1px solid #707070;
-    top: 66%;
+    top: calc(50% - 0.5px);
   }
 }
 `
@@ -106,7 +106,7 @@ export const Seed = styled.div<SeedProps>(
     &::after {
         content: "";
         position: absolute;
-        height: 50%;
+        height: 67%;
         width: 1.5em;
       [dir="rtl"] & {
         left: 0px;
@@ -142,7 +142,7 @@ export const Seed = styled.div<SeedProps>(
     }
     &:nth-child(odd):not(:last-child)::after {
       border-top: 1px solid #707070;
-      top: calc(50% - 0.5px);
+      top: 67%;
       [dir="rtl"] & {
         border-left: 1px solid #707070;
         }
