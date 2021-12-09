@@ -66,7 +66,7 @@ font-size: 14px;
   &::after {
       content: "";
       position: absolute;
-      height: 50%;
+      height: 66%;
       width: 3em;
     [dir="rtl"] & {
       left: -1.5em;
@@ -81,7 +81,7 @@ font-size: 14px;
   }
   &:nth-child(odd)::after {
     border-top: 1px solid #707070;
-    top: calc(50% - 0.5px);
+    top: 66%;
   }
 }
 `
