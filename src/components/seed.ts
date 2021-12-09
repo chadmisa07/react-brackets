@@ -77,7 +77,7 @@ font-size: 14px;
   }
   &:nth-child(even)::after {
     border-bottom: 1px solid #707070;
-    top: -0.5px;
+    top: 11.5px;
   }
   &:nth-child(odd)::after {
     border-top: 1px solid #707070;
