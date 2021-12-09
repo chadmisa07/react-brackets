@@ -16,6 +16,7 @@ export const SeedItem = styled.div`
   box-shadow: 0 2px 4px -2px #111630;
   text-align: center;
   position: relative;
+  height: 32px;
 `;
 
 export const SeedTeam = styled.div`
