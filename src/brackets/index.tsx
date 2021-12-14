@@ -55,7 +55,10 @@ SingleEliminationProps) => {
   const isResponsive = useMedia(mobileBreakpoint);
   const data = rounds.map((round, roundIdx) => (
     <Fragment key={roundIdx}>
-      <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
+      <Round
+        className={`round-container  ${roundClassName} ${round.isFirstRound ? 'first-round' : ''}`}
+        mobileBreakpoint={mobileBreakpoint}
+      >
         {round.title && roundTitleComponent(round.title, roundIdx)}
         <SeedsList>
           {round.seeds.map((seed, idx) => (

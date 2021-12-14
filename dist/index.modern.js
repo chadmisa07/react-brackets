@@ -107,7 +107,7 @@ var SingleElimination = function SingleElimination(_ref) {
     return React.createElement(Fragment, {
       key: roundIdx
     }, React.createElement(Round, {
-      className: roundClassName,
+      className: "round-container  " + roundClassName + " " + (round.isFirstRound ? 'first-round' : ''),
       mobileBreakpoint: mobileBreakpoint
     }, round.title && roundTitleComponent(round.title, roundIdx), React.createElement(SeedsList, null, round.seeds.map(function (seed, idx) {
       return React.createElement(Fragment, {
