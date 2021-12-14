@@ -43,7 +43,6 @@ export interface SingleEliminationProps {
 const SingleElimination = ({
   rounds,
   rtl = false,
-  roundClassName,
   bracketClassName,
   swipeableProps = {},
   mobileBreakpoint = 992,
@@ -56,7 +55,7 @@ SingleEliminationProps) => {
   const data = rounds.map((round, roundIdx) => (
     <Fragment key={roundIdx}>
       <Round
-        className={`round-container  ${roundClassName} ${round.isFirstRound ? 'first-round' : ''}`}
+        className={`round-container ${round.isFirstRound ? 'first-round' : ''}`}
         mobileBreakpoint={mobileBreakpoint}
       >
         {round.title && roundTitleComponent(round.title, roundIdx)}

@@ -95,7 +95,6 @@ var SingleElimination = function SingleElimination(_ref) {
   var rounds = _ref.rounds,
       _ref$rtl = _ref.rtl,
       rtl = _ref$rtl === void 0 ? false : _ref$rtl,
-      roundClassName = _ref.roundClassName,
       bracketClassName = _ref.bracketClassName,
       _ref$swipeableProps = _ref.swipeableProps,
       swipeableProps = _ref$swipeableProps === void 0 ? {} : _ref$swipeableProps,
@@ -110,7 +109,7 @@ var SingleElimination = function SingleElimination(_ref) {
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
-      className: "round-container  " + roundClassName + " " + (round.isFirstRound ? 'first-round' : ''),
+      className: "round-container " + (round.isFirstRound ? 'first-round' : ''),
       mobileBreakpoint: mobileBreakpoint
     }, round.title && roundTitleComponent(round.title, roundIdx), React__default.createElement(SeedsList, null, round.seeds.map(function (seed, idx) {
       return React__default.createElement(React.Fragment, {
