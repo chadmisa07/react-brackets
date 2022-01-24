@@ -9,6 +9,7 @@ export interface RenderSeedProps {
   breakpoint: number;
   roundIndex: number;
   seedIndex: number;
+  isConsolationMatch: boolean;
 }
 
 export interface SingleEliminationProps {
@@ -35,32 +36,62 @@ export interface SingleEliminationProps {
    * @param {number} roundIdx the current round index
    */
   renderSeedComponent?: ({ seed, breakpoint, roundIndex, seedIndex }: RenderSeedProps) => any;
+
+  consolationMatch?: any;
 }
 
 const SingleElimination = ({
   rounds,
   rtl = false,
-  roundClassName,
   bracketClassName,
   swipeableProps = {},
   mobileBreakpoint = 992,
   renderSeedComponent = renderSeed,
   roundTitleComponent = renderTitle,
+  consolationMatch,
+  roundClassName,
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-
   const data = rounds.map((round, roundIdx) => (
-    <Round key={roundIdx} className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
-      {round.title && roundTitleComponent(round.title, roundIdx)}
-      <SeedsList>
-        {round.seeds.map((seed, idx) => (
-          <Fragment key={idx}>
-            {renderSeedComponent({ seed, breakpoint: mobileBreakpoint, roundIndex: roundIdx, seedIndex: idx })}
-          </Fragment>
-        ))}
-      </SeedsList>
-    </Round>
+    <Fragment key={roundIdx}>
+      <Round
+        className={`round-container ${round.isFirstRound ? 'first-round' : ''}`}
+        mobileBreakpoint={mobileBreakpoint}
+      >
+        {round.title && roundTitleComponent(round.title, roundIdx)}
+        <SeedsList>
+          {round.seeds.map((seed, idx) => (
+            <Fragment key={idx}>
+              {renderSeedComponent({
+                seed,
+                breakpoint: mobileBreakpoint,
+                roundIndex: roundIdx,
+                seedIndex: idx,
+                isConsolationMatch: false,
+              })}
+            </Fragment>
+          ))}
+        </SeedsList>
+      </Round>
+
+      {consolationMatch && roundIdx + 1 === rounds.length ? (
+        <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
+          {roundTitleComponent('     ', roundIdx)}
+          <SeedsList className='consolation-match'>
+            <Fragment>
+              {renderSeedComponent({
+                seed: consolationMatch.seeds[0],
+                breakpoint: mobileBreakpoint,
+                roundIndex: roundIdx,
+                seedIndex: 0,
+                isConsolationMatch: true,
+              })}
+            </Fragment>
+          </SeedsList>
+        </Round>
+      ) : null}
+    </Fragment>
   ));
 
   if (isResponsive) {
