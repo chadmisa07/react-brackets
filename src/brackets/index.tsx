@@ -49,7 +49,6 @@ const SingleElimination = ({
   renderSeedComponent = renderSeed,
   roundTitleComponent = renderTitle,
   consolationMatch,
-  roundClassName,
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
@@ -76,7 +75,7 @@ const SingleElimination = ({
       </Round>
 
       {consolationMatch && roundIdx + 1 === rounds.length ? (
-        <Round className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
+        <Round className='roundClassName' mobileBreakpoint={mobileBreakpoint}>
           {roundTitleComponent('     ', roundIdx)}
           <SeedsList className='consolation-match'>
             <Fragment>
