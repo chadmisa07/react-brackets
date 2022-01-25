@@ -36,6 +36,8 @@ export const RoundTitle = styled.div`
   color: #8f8f8f;
   font-weight: 400;
   text-align: center;
+  position: sticky;
+  top: 0;
 `;
 export const SeedsList = styled.div`
   margin: 0;
