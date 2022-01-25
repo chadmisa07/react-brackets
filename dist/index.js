@@ -36,7 +36,7 @@ var Bracket = styled.div(function (props) {
 var Round = styled.div(function (props) {
   return "\n  flex: 0;\n  // min-width:300px;\n  display:flex;\n  flex-direction:column;\n  @media (max-width: " + props.mobileBreakpoint + "px) {\n    min-width:0;\n  }\n  ";
 });
-var RoundTitle = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  color: #8f8f8f;\n  font-weight: 400;\n  text-align: center;\n  position: sticky;\n  top: 0;\n"])));
+var RoundTitle = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  color: #8f8f8f;\n  font-weight: 400;\n  text-align: center;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n"])));
 var SeedsList = styled.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  flex-flow: row wrap;\n  justify-content: center;\n  height: 100%;\n  list-style: none;\n"])));
 
 function useMedia(breakPoint) {
