@@ -109,10 +109,11 @@ var SingleElimination = function SingleElimination(_ref) {
     }, React.createElement(Round, {
       className: "round-container " + (round.isFirstRound ? 'first-round' : ''),
       mobileBreakpoint: mobileBreakpoint
-    }, round.title && roundTitleComponent(round.title, roundIdx), React.createElement(SeedsList, null, round.seeds.map(function (seed, idx) {
-      return React.createElement("div", {
-        key: idx,
-        className: 'seed-container'
+    }, round.title && roundTitleComponent(round.title, roundIdx), React.createElement(SeedsList, {
+      className: 'seed-list'
+    }, round.seeds.map(function (seed, idx) {
+      return React.createElement(Fragment, {
+        key: idx
       }, renderSeedComponent({
         seed: seed,
         breakpoint: mobileBreakpoint,
@@ -124,7 +125,7 @@ var SingleElimination = function SingleElimination(_ref) {
       className: 'round-container',
       mobileBreakpoint: mobileBreakpoint
     }, roundTitleComponent('     ', roundIdx), React.createElement(SeedsList, {
-      className: 'consolation-match'
+      className: 'seed-list consolation-match'
     }, React.createElement(Fragment, null, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,

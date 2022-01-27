@@ -59,9 +59,9 @@ const SingleElimination = ({
         mobileBreakpoint={mobileBreakpoint}
       >
         {round.title && roundTitleComponent(round.title, roundIdx)}
-        <SeedsList>
+        <SeedsList className='seed-list'>
           {round.seeds.map((seed, idx) => (
-            <div key={idx} className='seed-container'>
+            <Fragment key={idx}>
               {renderSeedComponent({
                 seed,
                 breakpoint: mobileBreakpoint,
@@ -69,7 +69,7 @@ const SingleElimination = ({
                 seedIndex: idx,
                 isConsolationMatch: false,
               })}
-            </div>
+            </Fragment>
           ))}
         </SeedsList>
       </Round>
@@ -77,7 +77,7 @@ const SingleElimination = ({
       {consolationMatch && roundIdx + 1 === rounds.length ? (
         <Round className='round-container' mobileBreakpoint={mobileBreakpoint}>
           {roundTitleComponent('     ', roundIdx)}
-          <SeedsList className='consolation-match'>
+          <SeedsList className='seed-list consolation-match'>
             <Fragment>
               {renderSeedComponent({
                 seed: consolationMatch.seeds[0],
