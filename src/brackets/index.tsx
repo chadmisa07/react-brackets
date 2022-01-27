@@ -61,7 +61,7 @@ const SingleElimination = ({
         {round.title && roundTitleComponent(round.title, roundIdx)}
         <SeedsList>
           {round.seeds.map((seed, idx) => (
-            <Fragment key={idx}>
+            <div key={idx} className='seed-container'>
               {renderSeedComponent({
                 seed,
                 breakpoint: mobileBreakpoint,
@@ -69,7 +69,7 @@ const SingleElimination = ({
                 seedIndex: idx,
                 isConsolationMatch: false,
               })}
-            </Fragment>
+            </div>
           ))}
         </SeedsList>
       </Round>
