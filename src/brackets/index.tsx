@@ -61,7 +61,7 @@ const SingleElimination = ({
         {round.title && roundTitleComponent(round.title, roundIdx)}
         <SeedsList className='seed-list'>
           {round.seeds.map((seed, idx) => {
-            if (seed.data.entrantA.entrantId === 1 || seed.data.entrantB.entrantId === 1) return null;
+            if (seed.data.entrantA.entrantId === 1 || seed.data.entrantB.entrantId === 1) return <Fragment />;
             return (
               <Fragment key={idx}>
                 {renderSeedComponent({
