@@ -115,6 +115,7 @@ var SingleElimination = function SingleElimination(_ref) {
     }, round.title && roundTitleComponent(round.title, roundIdx), React__default.createElement(SeedsList, {
       className: 'seed-list'
     }, round.seeds.map(function (seed, idx) {
+      console.log('@@@@@@@@@@@@ seed >>>>>>>>>>>>>>>>>>>>>>.', seed);
       return React__default.createElement(React.Fragment, {
         key: idx
       }, renderSeedComponent({

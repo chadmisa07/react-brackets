@@ -60,17 +60,20 @@ const SingleElimination = ({
       >
         {round.title && roundTitleComponent(round.title, roundIdx)}
         <SeedsList className='seed-list'>
-          {round.seeds.map((seed, idx) => (
-            <Fragment key={idx}>
-              {renderSeedComponent({
-                seed,
-                breakpoint: mobileBreakpoint,
-                roundIndex: roundIdx,
-                seedIndex: idx,
-                isConsolationMatch: false,
-              })}
-            </Fragment>
-          ))}
+          {round.seeds.map((seed, idx) => {
+            console.log('@@@@@@@@@@@@ seed >>>>>>>>>>>>>>>>>>>>>>.', seed);
+            return (
+              <Fragment key={idx}>
+                {renderSeedComponent({
+                  seed,
+                  breakpoint: mobileBreakpoint,
+                  roundIndex: roundIdx,
+                  seedIndex: idx,
+                  isConsolationMatch: false,
+                })}
+              </Fragment>
+            );
+          })}
         </SeedsList>
       </Round>
 
