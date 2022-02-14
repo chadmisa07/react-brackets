@@ -104,10 +104,10 @@ var SingleElimination = function SingleElimination(_ref) {
       consolationMatch = _ref.consolationMatch;
   var isResponsive = useMedia(mobileBreakpoint);
   var data = rounds.map(function (round, roundIdx) {
-    var byeMatches = round.filter(function (m) {
+    var byeMatches = round.seeds.filter(function (m) {
       return m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE';
     });
-    var notByeMatches = round.filter(function (m) {
+    var notByeMatches = round.seeds.filter(function (m) {
       return m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE';
     });
     return React.createElement(Fragment, {
