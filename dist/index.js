@@ -113,6 +113,8 @@ var SingleElimination = function SingleElimination(_ref) {
     var notByeMatches = round.seeds.filter(function (m) {
       return m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE';
     });
+    console.log('@@@@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', byeMatches);
+    console.log('@@@@@@@@@@@@@@@@@@@ NotByeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', notByeMatches);
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {

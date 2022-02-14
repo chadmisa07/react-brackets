@@ -61,6 +61,9 @@ const SingleElimination = ({
       (m: any) => m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE'
     );
 
+    console.log('@@@@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', byeMatches);
+    console.log('@@@@@@@@@@@@@@@@@@@ NotByeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', notByeMatches);
+
     return (
       <Fragment key={roundIdx}>
         <Round
