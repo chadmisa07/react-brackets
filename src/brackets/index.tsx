@@ -52,48 +52,58 @@ const SingleElimination = ({
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-  const data = rounds.map((round, roundIdx) => (
-    <Fragment key={roundIdx}>
-      <Round
-        className={`round-container ${round.isFirstRound ? 'first-round' : ''}`}
-        mobileBreakpoint={mobileBreakpoint}
-      >
-        {round.title && roundTitleComponent(round.title, roundIdx)}
-        <SeedsList className='seed-list'>
-          {round.seeds.map((seed, idx) => {
-            return (
-              <Fragment key={idx}>
-                {renderSeedComponent({
-                  seed,
-                  breakpoint: mobileBreakpoint,
-                  roundIndex: roundIdx,
-                  seedIndex: idx,
-                  isConsolationMatch: false,
-                })}
-              </Fragment>
-            );
-          })}
-        </SeedsList>
-      </Round>
+  const data = rounds.map((round, roundIdx) => {
+    const byeMatches = round.filter(
+      (m: any) => m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE'
+    );
 
-      {consolationMatch && roundIdx + 1 === rounds.length ? (
-        <Round className='round-container' mobileBreakpoint={mobileBreakpoint}>
-          {roundTitleComponent('     ', roundIdx)}
-          <SeedsList className='seed-list consolation-match'>
-            <Fragment>
-              {renderSeedComponent({
-                seed: consolationMatch.seeds[0],
-                breakpoint: mobileBreakpoint,
-                roundIndex: roundIdx,
-                seedIndex: 0,
-                isConsolationMatch: true,
-              })}
-            </Fragment>
+    const notByeMatches = round.filter(
+      (m: any) => m.formattedData.entrantA.name !== 'BYE' && m.formattedData.entrantB.name !== 'BYE'
+    );
+
+    return (
+      <Fragment key={roundIdx}>
+        <Round
+          className={`round-container ${round.isFirstRound ? 'first-round' : ''}`}
+          mobileBreakpoint={mobileBreakpoint}
+        >
+          {round.title && roundTitleComponent(round.title, roundIdx)}
+          <SeedsList className={`seed-list ${byeMatches.length > notByeMatches.length ? 'more-byes' : ''}`}>
+            {round.seeds.map((seed, idx) => {
+              return (
+                <Fragment key={idx}>
+                  {renderSeedComponent({
+                    seed,
+                    breakpoint: mobileBreakpoint,
+                    roundIndex: roundIdx,
+                    seedIndex: idx,
+                    isConsolationMatch: false,
+                  })}
+                </Fragment>
+              );
+            })}
           </SeedsList>
         </Round>
-      ) : null}
-    </Fragment>
-  ));
+
+        {consolationMatch && roundIdx + 1 === rounds.length ? (
+          <Round className='round-container' mobileBreakpoint={mobileBreakpoint}>
+            {roundTitleComponent('     ', roundIdx)}
+            <SeedsList className='seed-list consolation-match'>
+              <Fragment>
+                {renderSeedComponent({
+                  seed: consolationMatch.seeds[0],
+                  breakpoint: mobileBreakpoint,
+                  roundIndex: roundIdx,
+                  seedIndex: 0,
+                  isConsolationMatch: true,
+                })}
+              </Fragment>
+            </SeedsList>
+          </Round>
+        ) : null}
+      </Fragment>
+    );
+  });
 
   if (isResponsive) {
     // Since SwipeableViewsProps have an issue that it uses ref inside of it, We need to remove ref from the object
