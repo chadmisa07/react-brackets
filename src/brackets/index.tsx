@@ -38,7 +38,6 @@ export interface SingleEliminationProps {
   renderSeedComponent?: ({ seed, breakpoint, roundIndex, seedIndex }: RenderSeedProps) => any;
 
   consolationMatch?: any;
-  bracket: any;
 }
 
 const SingleElimination = ({
@@ -50,21 +49,14 @@ const SingleElimination = ({
   renderSeedComponent = renderSeed,
   roundTitleComponent = renderTitle,
   consolationMatch,
-  bracket,
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
   const data = rounds.map((round, roundIdx) => {
-    const isHideByes =
-      bracket.status !== 'preparing' || (bracket.status === 'preparing' && bracket?.config.bracketSize === 0);
     const byeMatches = round.seeds.filter((s) => {
-      if (round.seeds[0].data.bracketNum === 1) {
-        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
-      }
-
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
-    if (isHideByes && byeMatches.length === round.seeds.length) return null;
+    if (byeMatches.length === round.seeds.length) return null;
 
     return (
       <Fragment key={roundIdx}>
