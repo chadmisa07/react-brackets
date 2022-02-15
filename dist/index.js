@@ -110,7 +110,7 @@ var SingleElimination = function SingleElimination(_ref) {
     var byeMatches = round.seeds.filter(function (s) {
       return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
     });
-    if (byeMatches.length === round.seeds.length) return null;
+    if (round.seeds[0].data.bracketNum === 1 && byeMatches.length === round.seeds.length) return null;
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
