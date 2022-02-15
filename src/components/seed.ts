@@ -142,7 +142,7 @@ export const Seed = styled.div<SeedProps>(
     }
     &:nth-child(odd):not(:last-child)::after {
       border-top: 1px solid #707070;
-      top: calc(50% - -15px);
+      top: calc(50% - -14px);
       [dir="rtl"] & {
         border-left: 1px solid #707070;
         }
