@@ -108,7 +108,11 @@ var SingleElimination = function SingleElimination(_ref) {
   var isResponsive = useMedia(mobileBreakpoint);
   var data = rounds.map(function (round, roundIdx) {
     var byeMatches = round.seeds.filter(function (s) {
-      return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+      if (round.seeds[0].data.bracketNum === 1) {
+        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+      }
+
+      return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
     if (round.seeds[0].data.bracketNum === 1 && byeMatches.length === round.seeds.length) return null;
     return React__default.createElement(React.Fragment, {

@@ -53,9 +53,13 @@ const SingleElimination = ({
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
   const data = rounds.map((round, roundIdx) => {
-    const byeMatches = round.seeds.filter(
-      (s) => s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE'
-    );
+    const byeMatches = round.seeds.filter((s) => {
+      if (round.seeds[0].data.bracketNum === 1) {
+        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+      }
+
+      return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
+    });
     if (round.seeds[0].data.bracketNum === 1 && byeMatches.length === round.seeds.length) return null;
 
     return (
