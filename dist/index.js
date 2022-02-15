@@ -104,19 +104,13 @@ var SingleElimination = function SingleElimination(_ref) {
       renderSeedComponent = _ref$renderSeedCompon === void 0 ? renderSeed : _ref$renderSeedCompon,
       _ref$roundTitleCompon = _ref.roundTitleComponent,
       roundTitleComponent = _ref$roundTitleCompon === void 0 ? renderTitle : _ref$roundTitleCompon,
-      consolationMatch = _ref.consolationMatch,
-      bracket = _ref.bracket;
+      consolationMatch = _ref.consolationMatch;
   var isResponsive = useMedia(mobileBreakpoint);
   var data = rounds.map(function (round, roundIdx) {
-    var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
     var byeMatches = round.seeds.filter(function (s) {
-      if (round.seeds[0].data.bracketNum === 1) {
-        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
-      }
-
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
-    if (isHideByes && byeMatches.length === round.seeds.length) return null;
+    if (byeMatches.length === round.seeds.length) return null;
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
