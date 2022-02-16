@@ -111,11 +111,12 @@ var SingleElimination = function SingleElimination(_ref) {
     var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
     var byeMatches = round.seeds.filter(function (s) {
       if (round.seeds[0].data.bracketNum === 1) {
-        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+        return s.formattedData.entrantA.name !== 'BYE' || s.formattedData.entrantB.name !== 'BYE';
       }
 
       return !(s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE');
     });
+    console.log('@@@@@@@@@@@@@@@@ round.seeds[0].data >>>>>>>>>', round.seeds[0].data);
     console.log('@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>', byeMatches);
     console.log('@@@@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>', round.seeds);
     console.log('@@@@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>', isHideByes);
