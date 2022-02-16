@@ -68,6 +68,9 @@ const SingleElimination = ({
 
     return true;
   });
+
+  console.log('@@@@@@@@@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', rounds);
+  console.log('@@@@@@@@@@@@@@@@@@@@ filteredRounds >>>>>>>>>>>>>>>>>>>>>>', filteredRounds);
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
   const data = filteredRounds.map((round, roundIdx) => {

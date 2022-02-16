@@ -118,6 +118,8 @@ var SingleElimination = function SingleElimination(_ref) {
     if (isHideByes && byeMatches.length === round.seeds.length) return false;
     return true;
   });
+  console.log('@@@@@@@@@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', rounds);
+  console.log('@@@@@@@@@@@@@@@@@@@@ filteredRounds >>>>>>>>>>>>>>>>>>>>>>', filteredRounds);
   var isResponsive = useMedia(mobileBreakpoint);
   var data = filteredRounds.map(function (round, roundIdx) {
     return React__default.createElement(React.Fragment, {
