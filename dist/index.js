@@ -106,6 +106,7 @@ var SingleElimination = function SingleElimination(_ref) {
       roundTitleComponent = _ref$roundTitleCompon === void 0 ? renderTitle : _ref$roundTitleCompon,
       consolationMatch = _ref.consolationMatch,
       bracket = _ref.bracket;
+  var roundNum = 0;
   var isResponsive = useMedia(mobileBreakpoint);
   var data = rounds.map(function (round, roundIdx) {
     var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
@@ -117,12 +118,13 @@ var SingleElimination = function SingleElimination(_ref) {
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
     if (isHideByes && byeMatches.length === round.seeds.length) return null;
+    roundNum++;
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
       className: "round-container " + (round.isFirstRound ? 'first-round' : ''),
       mobileBreakpoint: mobileBreakpoint
-    }, round.title && roundTitleComponent(round.title, roundIdx), React__default.createElement(SeedsList, {
+    }, round.title && roundTitleComponent(round.title, roundNum), React__default.createElement(SeedsList, {
       className: 'seed-list'
     }, round.seeds.map(function (seed, idx) {
       return React__default.createElement(React.Fragment, {
@@ -130,19 +132,19 @@ var SingleElimination = function SingleElimination(_ref) {
       }, renderSeedComponent({
         seed: seed,
         breakpoint: mobileBreakpoint,
-        roundIndex: roundIdx,
+        roundIndex: roundNum,
         seedIndex: idx,
         isConsolationMatch: false
       }));
     }))), consolationMatch && roundIdx + 1 === rounds.length ? React__default.createElement(Round, {
       className: 'round-container',
       mobileBreakpoint: mobileBreakpoint
-    }, roundTitleComponent('     ', roundIdx), React__default.createElement(SeedsList, {
+    }, roundTitleComponent('     ', roundNum), React__default.createElement(SeedsList, {
       className: 'seed-list consolation-match'
     }, React__default.createElement(React.Fragment, null, renderSeedComponent({
       seed: consolationMatch.seeds[0],
       breakpoint: mobileBreakpoint,
-      roundIndex: roundIdx,
+      roundIndex: roundNum,
       seedIndex: 0,
       isConsolationMatch: true
     })))) : null);
