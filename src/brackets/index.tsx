@@ -52,28 +52,21 @@ const SingleElimination = ({
   consolationMatch,
   bracket,
 }: SingleEliminationProps) => {
-  const isHideByes =
-    bracket.status !== 'preparing' || (bracket.status === 'preparing' && bracket?.config.bracketSize === 0);
-
-  const filteredRounds = rounds.filter((round) => {
-    const byeMatches = round.seeds.filter((seed) => {
-      if (round.seeds[0].data.bracketNum === 1) {
-        return seed.formattedData.entrantA.name === 'BYE' || seed.formattedData.entrantB.name === 'BYE';
-      }
-
-      return seed.formattedData.entrantA.name === 'BYE' && seed.formattedData.entrantB.name === 'BYE';
-    });
-
-    if (isHideByes && byeMatches.length === round.seeds.length) return false;
-
-    return true;
-  });
-
-  console.log('@@@@@@@@@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', rounds);
-  console.log('@@@@@@@@@@@@@@@@@@@@ filteredRounds >>>>>>>>>>>>>>>>>>>>>>', filteredRounds);
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-  const data = filteredRounds.map((round, roundIdx) => {
+  const data = rounds.map((round, roundIdx) => {
+    const isHideByes =
+      bracket.status !== 'preparing' || (bracket.status === 'preparing' && bracket?.config.bracketSize === 0);
+    const byeMatches = round.seeds.filter((s) => {
+      if (round.seeds[0].data.bracketNum === 1) {
+        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+      }
+
+      return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
+    });
+
+    if (isHideByes && byeMatches.length === round.seeds.length) return null;
+
     return (
       <Fragment key={roundIdx}>
         <Round

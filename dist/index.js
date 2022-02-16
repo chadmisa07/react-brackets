@@ -106,22 +106,17 @@ var SingleElimination = function SingleElimination(_ref) {
       roundTitleComponent = _ref$roundTitleCompon === void 0 ? renderTitle : _ref$roundTitleCompon,
       consolationMatch = _ref.consolationMatch,
       bracket = _ref.bracket;
-  var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
-  var filteredRounds = rounds.filter(function (round) {
-    var byeMatches = round.seeds.filter(function (seed) {
+  var isResponsive = useMedia(mobileBreakpoint);
+  var data = rounds.map(function (round, roundIdx) {
+    var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
+    var byeMatches = round.seeds.filter(function (s) {
       if (round.seeds[0].data.bracketNum === 1) {
-        return seed.formattedData.entrantA.name === 'BYE' || seed.formattedData.entrantB.name === 'BYE';
+        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
       }
 
-      return seed.formattedData.entrantA.name === 'BYE' && seed.formattedData.entrantB.name === 'BYE';
+      return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
-    if (isHideByes && byeMatches.length === round.seeds.length) return false;
-    return true;
-  });
-  console.log('@@@@@@@@@@@@@@@@@@@@ rounds >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', rounds);
-  console.log('@@@@@@@@@@@@@@@@@@@@ filteredRounds >>>>>>>>>>>>>>>>>>>>>>', filteredRounds);
-  var isResponsive = useMedia(mobileBreakpoint);
-  var data = filteredRounds.map(function (round, roundIdx) {
+    if (isHideByes && byeMatches.length === round.seeds.length) return null;
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
