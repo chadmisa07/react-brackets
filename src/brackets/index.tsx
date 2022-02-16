@@ -52,38 +52,39 @@ const SingleElimination = ({
   consolationMatch,
   bracket,
 }: SingleEliminationProps) => {
-  let roundNum = 0;
-  // Checking responsive size
-  const isResponsive = useMedia(mobileBreakpoint);
-  const data = rounds.map((round, roundIdx) => {
-    const isHideByes =
-      bracket.status !== 'preparing' || (bracket.status === 'preparing' && bracket?.config.bracketSize === 0);
-    const byeMatches = round.seeds.filter((s) => {
+  const isHideByes =
+    bracket.status !== 'preparing' || (bracket.status === 'preparing' && bracket?.config.bracketSize === 0);
+
+  const filteredRounds = rounds.filter((round) => {
+    const byeMatches = round.seeds.filter((seed) => {
       if (round.seeds[0].data.bracketNum === 1) {
-        return s.formattedData.entrantA.name === 'BYE' || s.formattedData.entrantB.name === 'BYE';
+        return seed.formattedData.entrantA.name === 'BYE' || seed.formattedData.entrantB.name === 'BYE';
       }
 
-      return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
+      return seed.formattedData.entrantA.name === 'BYE' && seed.formattedData.entrantB.name === 'BYE';
     });
 
-    if (isHideByes && byeMatches.length === round.seeds.length) return null;
+    if (isHideByes && byeMatches.length === round.seeds.length) return false;
 
-    roundNum++;
-
+    return true;
+  });
+  // Checking responsive size
+  const isResponsive = useMedia(mobileBreakpoint);
+  const data = filteredRounds.map((round, roundIdx) => {
     return (
       <Fragment key={roundIdx}>
         <Round
           className={`round-container ${round.isFirstRound ? 'first-round' : ''}`}
           mobileBreakpoint={mobileBreakpoint}
         >
-          {round.title && roundTitleComponent(round.title, roundNum)}
+          {round.title && roundTitleComponent(round.title, roundIdx)}
           <SeedsList className='seed-list'>
             {round.seeds.map((seed, idx) => (
               <Fragment key={idx}>
                 {renderSeedComponent({
                   seed,
                   breakpoint: mobileBreakpoint,
-                  roundIndex: roundNum,
+                  roundIndex: roundIdx,
                   seedIndex: idx,
                   isConsolationMatch: false,
                 })}
@@ -94,13 +95,13 @@ const SingleElimination = ({
 
         {consolationMatch && roundIdx + 1 === rounds.length ? (
           <Round className='round-container' mobileBreakpoint={mobileBreakpoint}>
-            {roundTitleComponent('     ', roundNum)}
+            {roundTitleComponent('     ', roundIdx)}
             <SeedsList className='seed-list consolation-match'>
               <Fragment>
                 {renderSeedComponent({
                   seed: consolationMatch.seeds[0],
                   breakpoint: mobileBreakpoint,
-                  roundIndex: roundNum,
+                  roundIndex: roundIdx,
                   seedIndex: 0,
                   isConsolationMatch: true,
                 })}
