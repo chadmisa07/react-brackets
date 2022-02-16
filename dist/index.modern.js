@@ -111,7 +111,7 @@ var SingleElimination = function SingleElimination(_ref) {
         return s.formattedData.entrantA.name !== 'BYE' || s.formattedData.entrantB.name !== 'BYE';
       }
 
-      return !(s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE');
+      return Boolean(s.formattedData.entrantA.name !== 'BYE' && s.formattedData.entrantB.name !== 'BYE');
     });
     console.log('@@@@@@@@@@@@@@@@ round.seeds[0].data >>>>>>>>>', round.seeds[0].data);
     console.log('@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>', byeMatches);
