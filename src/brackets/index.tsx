@@ -65,6 +65,11 @@ const SingleElimination = ({
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
 
+    console.log('@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>>>>>>>>>>>', isHideByes);
+    console.log('@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>', byeMatches);
+    console.log('@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>>>>>>>>>>', round.seeds);
+    console.log('@@@@@@@@@@@@@ bracket.entrants >>>>>>>>>>>>>>>>>>>>>>', bracket.entrants);
+
     if (isHideByes && byeMatches.length === round.seeds.length) return null;
 
     return (
