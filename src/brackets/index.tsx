@@ -70,7 +70,7 @@ const SingleElimination = ({
     console.log('@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>>>>>>>>>>', round.seeds);
     console.log('@@@@@@@@@@@@@ bracket.entrants >>>>>>>>>>>>>>>>>>>>>>', bracket.entrants);
 
-    if (isHideByes && byeMatches.length === round.seeds.length) return null;
+    if (bracket?.entrants?.length > 4 && isHideByes && byeMatches.length === round.seeds.length) return null;
 
     return (
       <Fragment key={roundIdx}>
