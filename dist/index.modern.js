@@ -115,10 +115,6 @@ var SingleElimination = function SingleElimination(_ref) {
 
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
-    console.log('@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>>>>>>>>>>>', isHideByes);
-    console.log('@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>>>>>>>>>>', byeMatches);
-    console.log('@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>>>>>>>>>>', round.seeds);
-    console.log('@@@@@@@@@@@@@ bracket.entrants >>>>>>>>>>>>>>>>>>>>>>', bracket.entrants);
     if ((bracket === null || bracket === void 0 ? void 0 : (_bracket$entrants = bracket.entrants) === null || _bracket$entrants === void 0 ? void 0 : _bracket$entrants.length) > 4 && isHideByes && byeMatches.length === round.seeds.length) return null;
     return React.createElement(Fragment, {
       key: roundIdx
