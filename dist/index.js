@@ -108,7 +108,7 @@ var SingleElimination = function SingleElimination(_ref) {
       bracket = _ref.bracket;
   var isResponsive = useMedia(mobileBreakpoint);
   var data = rounds.map(function (round, roundIdx) {
-    var _bracket$entrants;
+    var _bracket$entrants, _bracket$entrants2;
 
     var isHideByes = bracket.status !== 'preparing' || bracket.status === 'preparing' && (bracket === null || bracket === void 0 ? void 0 : bracket.config.bracketSize) === 0;
     var byeMatches = round.seeds.filter(function (s) {
@@ -118,7 +118,11 @@ var SingleElimination = function SingleElimination(_ref) {
 
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
-    if ((bracket === null || bracket === void 0 ? void 0 : (_bracket$entrants = bracket.entrants) === null || _bracket$entrants === void 0 ? void 0 : _bracket$entrants.length) > 4 && isHideByes && byeMatches.length === round.seeds.length) return null;
+    console.log('@@@@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>', byeMatches);
+    console.log('@@@@@@@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>', round.seeds);
+    console.log('@@@@@@@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>>', isHideByes);
+    console.log('@@@@@@@@@@@@@@@@@@@ bracket?.entrants?.length >>>>', bracket === null || bracket === void 0 ? void 0 : (_bracket$entrants = bracket.entrants) === null || _bracket$entrants === void 0 ? void 0 : _bracket$entrants.length);
+    if ((bracket === null || bracket === void 0 ? void 0 : (_bracket$entrants2 = bracket.entrants) === null || _bracket$entrants2 === void 0 ? void 0 : _bracket$entrants2.length) > 4 && isHideByes && byeMatches.length === round.seeds.length) return null;
     return React__default.createElement(React.Fragment, {
       key: roundIdx
     }, React__default.createElement(Round, {
