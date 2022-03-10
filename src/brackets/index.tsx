@@ -65,12 +65,13 @@ const SingleElimination = ({
       return s.formattedData.entrantA.name === 'BYE' && s.formattedData.entrantB.name === 'BYE';
     });
 
-    console.log('@@@@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>', byeMatches);
-    console.log('@@@@@@@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>', round.seeds);
-    console.log('@@@@@@@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>>', isHideByes);
-    console.log('@@@@@@@@@@@@@@@@@@@ bracket?.entrants?.length >>>>', bracket?.entrants?.length);
-
-    if (bracket?.entrants?.length > 4 && isHideByes && byeMatches.length === round.seeds.length) return null;
+    if (bracket?.entrants?.length > 4 && isHideByes && byeMatches.length === round.seeds.length) {
+      console.log('@@@@@@@@@@@@@@@@@@@ byeMatches >>>>>>>>>>>>>>>>>>>', byeMatches);
+      console.log('@@@@@@@@@@@@@@@@@@@ round.seeds >>>>>>>>>>>>>>>>>>', round.seeds);
+      console.log('@@@@@@@@@@@@@@@@@@@ isHideByes >>>>>>>>>>>>>>>>>>>', isHideByes);
+      console.log('@@@@@@@@@@@@@@@@@@@ bracket?.entrants?.length >>>>', bracket?.entrants?.length);
+      return null;
+    }
 
     return (
       <Fragment key={roundIdx}>
